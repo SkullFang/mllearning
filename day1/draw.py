@@ -95,14 +95,14 @@ if __name__ == "__main__":
     # print b.dtype
     # # #
     # # # # 可以通过dtype参数在创建时指定元素类型
-    # d = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]], dtype=np.float)
-    # f = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]], dtype=np.complex)
-    # print d
-    # print f
+    d = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]], dtype=np.float)
+    f = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]], dtype=np.complex)
+    print (d)
+    print (f)
     # # #
     # # # 如果更改元素类型，可以使用astype安全的转换
-    # f = d.astype(np.int)
-    # print f
+    f = d.astype(np.int)
+    print (f)
     # #
     # # # 但不要强制仅修改元素类型，如下面这句，将会以int来解释单精度float类型
     # d.dtype = np.int
@@ -112,54 +112,54 @@ if __name__ == "__main__":
     # 如果生成一定规则的数据，可以使用NumPy提供的专门函数
     # arange函数类似于python的range函数：指定起始值、终止值和步长来创建数组
     # 和Python的range类似，arange同样不包括终值；但arange可以生成浮点类型，而range只能是整数类型
-    # a = np.arange(1, 10, 0.5)
-    # print a
+    a = np.arange(1, 10, 0.5)
+    print (a)
     # # #
     # # # linspace函数通过指定起始值、终止值和元素个数来创建数组，缺省包括终止值
-    # b = np.linspace(1, 10, 10)
-    # print 'b = ', b
+    b = np.linspace(1, 10, 10)
+    print ('b = ', b)
     # # #
     # # 可以通过endpoint关键字指定是否包括终值
-    # c = np.linspace(1, 10, 10, endpoint=False)
-    # print 'c = ', c
+    c = np.linspace(1, 10, 10, endpoint=False)
+    print ('c = ', c)
     # # #
     # # 和linspace类似，logspace可以创建等比数列
-    # # 下面函数创建起始值为10^1，终止值为10^2，有20个数的等比数列
-    # d = np.logspace(1, 2, 10, endpoint=True)
-    # print d
+    # 下面函数创建起始值为10^1，终止值为10^2，有10个数的等比数列
+    d = np.logspace(1, 2, 10, endpoint=True)
+    print (d)
     # # #
-    # # # 下面创建起始值为2^0，终止值为2^10(包括)，有10个数的等比数列
-    # f = np.logspace(0, 10, 11, endpoint=True, base=2)
-    # print f
+    # # 下面创建起始值为2^0，终止值为2^10(包括)，有10个数的等比数列
+    f = np.logspace(0, 10, 10, endpoint=True, base=2)
+    print (f)
     # # #
-    # # # 使用 frombuffer, fromstring, fromfile等函数可以从字节序列创建数组
-    # s = 'abcd'
-    # g = np.fromstring(s, dtype=np.int8)
-    # print g
+    # # 使用 frombuffer, fromstring, fromfile等函数可以从字节序列创建数组
+    s = 'abcd'
+    g = np.fromstring(s, dtype=np.int8)
+    print (g)
     # #
     # 3.存取
     # 3.1常规办法：数组元素的存取方法和Python的标准方法相同
-    # a = np.arange(10)
-    # print a
-    # # # 获取某个元素
-    # print a[3]
-    # # # # 切片[3,6)，左闭右开
-    # print a[3:6]
-    # # # # 省略开始下标，表示从0开始
-    # print a[:5]
-    # # # # 下标为负表示从后向前数
-    # print a[3:]
-    # # # # 步长为2
-    # print a[1:9:2]
-    # # # # 步长为-1，即翻转
-    # print a[::-1]
-    # # # # 切片数据是原数组的一个视图，与原数组共享内容空间，可以直接修改元素值
-    # a[1:4] = 10, 20, 30
-    # print a
+    a = np.arange(10)
+    print (a)
+    # # 获取某个元素
+    print (a[3])
+    # # # 切片[3,6)，左闭右开
+    print (a[3:6])
+    # # # 省略开始下标，表示从0开始
+    print (a[:5])
+    # # # 下标为负表示从后向前数
+    print (a[3:])
+    # # # 步长为2
+    print (a[1:9:2])
+    # # # 步长为-1，即翻转
+    print (a[::-1])
+    # # # 切片数据是原数组的一个视图，与原数组共享内容空间，可以直接修改元素值
+    a[1:4] = 10, 20, 30
+    print (a)
     # # # # 因此，在实践中，切实注意原始数据是否被破坏，如：
-    # b = a[2:5]
-    # b[0] = 200
-    # print a
+    b = a[2:5]
+    b[0] = 200
+    print (a)
     #
     # # 3.2 整数/布尔数组存取
     # # 3.2.1
